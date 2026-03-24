@@ -4,6 +4,11 @@ import { clampText } from "../format.ts";
 import { resolveSafeExternalUrl } from "../open-external-url.ts";
 import type { SkillStatusEntry, SkillStatusReport } from "../types.ts";
 import { groupSkills } from "./skills-grouping.ts";
+import {
+  computeSkillMissing,
+  computeSkillReasons,
+  renderSkillStatusChips,
+} from "./skills-shared.ts";
 
 function safeExternalHref(raw?: string): string | null {
   if (!raw) {
@@ -11,11 +16,6 @@ function safeExternalHref(raw?: string): string | null {
   }
   return resolveSafeExternalUrl(raw, window.location.href);
 }
-import {
-  computeSkillMissing,
-  computeSkillReasons,
-  renderSkillStatusChips,
-} from "./skills-shared.ts";
 
 export type SkillsStatusFilter = "all" | "ready" | "needs-setup" | "disabled";
 
