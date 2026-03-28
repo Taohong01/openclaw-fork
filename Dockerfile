@@ -54,7 +54,7 @@ RUN set -eux; \
     done
 ENV PATH="/root/.bun/bin:${PATH}"
 
-RUN corepack enable
+RUN npm install -g pnpm@9.15.2
 
 WORKDIR /app
 
